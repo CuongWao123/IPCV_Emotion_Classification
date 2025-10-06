@@ -10,7 +10,6 @@ This project implements a facial emotion recognition system using classical comp
 
 - **Multi-stage preprocessing pipeline** with CLAHE enhancement and median filtering
 - **HOG feature extraction** for robust face representation
-- **MTCNN-based ROI extraction** for eyes and mouth regions
 - **Multiple classifier comparison** (SVM, Random Forest, Logistic Regression, XGBoost)
 - **Comprehensive evaluation** with visualization and analysis tools
 
@@ -180,7 +179,6 @@ The project includes comprehensive visualization tools:
 - **Feature distribution analysis**: PCA component visualization  
 - **Model performance comparison**: Accuracy and F1-score plots
 - **Confusion matrices**: Per-model classification analysis
-- **ROI extraction visualization**: Face, eyes, and mouth regions
 
 ## 🔍 Error Analysis
 
