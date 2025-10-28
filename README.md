@@ -8,8 +8,8 @@ This project implements a facial emotion recognition system using classical comp
 
 ### Key Features
 
-- **Multi-stage preprocessing pipeline** with CLAHE enhancement and median filtering
-- **HOG feature extraction** for robust face representation
+- **Preprocessing pipeline** Median filter , CLAHE , Resize , Normalize
+- **Feature extraction** HOG , LBP , SIFT
 - **Multiple classifier comparison** (SVM, Random Forest, Logistic Regression, XGBoost)
 - **Comprehensive evaluation** with visualization and analysis tools
 
@@ -22,7 +22,7 @@ IPCV_Project/
 │   ├── test/           # Testing dataset  
 │   └── sample/         # Sample images for quick testing
 ├── models/
-│   └── baseline_emotion_models.pkl    # Trained models
+│   └── *.pkl    # Trained models
 ├── Experiments.ipynb   # Main experimental notebook
 ├── utils.py           # Utility functions and preprocessing
 ├── extract_sample_images.py  # Data sampling script
@@ -81,45 +81,6 @@ pip install numpy matplotlib opencv-python scikit-learn scikit-image tensorflow 
    - Model training and evaluation
    - Results visualization and analysis
 
-## 🔬 Methodology
-
-### 1. Data Preprocessing Pipeline
-
-#### Stage 1: Basic Preprocessing
-- **Median Filtering**: Noise reduction with 3x3 kernel
-- **CLAHE Enhancement**: Contrast Limited Adaptive Histogram Equalization
-  - Clip limit: 2.0
-  - Tile grid: 8×8
-
-#### Stage 2: Image Normalization
-- **Resize**: Images scaled to 64×64 pixels
-- **Normalization**: Pixel values normalized to [0, 1] range
-- **Channel Addition**: Grayscale images with explicit channel dimension
-
-### 2. Feature Extraction
-
-#### HOG (Histogram of Oriented Gradients)
-- **Orientations**: 9 bins
-- **Pixels per cell**: 8×8
-- **Cells per block**: 2×2
-- **Block normalization**: L2-Hys
-
-### 3. Dimensionality Reduction
-
-- **StandardScaler**: Feature standardization
-- **PCA**: Principal Component Analysis
-  - Variance retention: 95%
-  - Typical reduction: ~4096 → ~465 features
-
-### 4. Classification Models
-
-| Model | Configuration | Key Parameters |
-|-------|---------------|----------------|
-| **SVM (RBF)** | RBF kernel | C=10, γ=0.01, class_weight='balanced' |
-| **Random Forest** | Tree ensemble | n_estimators=200, max_depth=20 |
-| **Logistic Regression** | Linear model | max_iter=2000, class_weight='balanced' |
-| **XGBoost** | Gradient boosting | n_estimators=200, max_depth=6 |
-
 ## 📊 Performance Metrics
 
 The system is evaluated using:
@@ -143,51 +104,6 @@ The system is evaluated using:
 | Fear | 0.50-0.65 | Confused with surprise |
 | Disgust | 0.40-0.60 | Most challenging class |
 
-## 🔧 Key Functions and Usage
-
-### Core Preprocessing Functions
-
-```python
-# Apply CLAHE enhancement
-enhanced_images = apply_clahe(images, clip_limit=2.0, tile_grid_size=(8, 8))
-
-# Extract HOG features
-hog_features = extract_hog_features(images, orientations=9, pixels_per_cell=(8, 8))
-
-# Process test data with fitted transformers
-X_test_processed, info = preprocess_test_data(X_test, scaler, pca, target_size=(64, 64))
-```
-
-### Model Training and Evaluation
-
-```python
-# Train multiple models
-model_results = train_and_evaluate_models(X_train, y_train, X_test, y_test, emotion_labels)
-
-# Detailed evaluation
-evaluate_models(model_results, y_test, emotion_labels)
-
-# Save best model
-summary_df, best_model_name = save_best_model(model_results, emotion_labels)
-```
-
-## 📈 Results Visualization
-
-The project includes comprehensive visualization tools:
-
-- **Preprocessing pipeline comparison**: Before/after image enhancement
-- **Feature distribution analysis**: PCA component visualization  
-- **Model performance comparison**: Accuracy and F1-score plots
-- **Confusion matrices**: Per-model classification analysis
-
-## 🔍 Error Analysis
-
-Common misclassification patterns:
-
-1. **Fear ↔ Surprise**: Similar eye widening expressions
-2. **Sad ↔ Angry**: Overlapping facial muscle activations  
-3. **Disgust challenges**: Limited training data and subtle expressions
-4. **Neutral variations**: High intra-class variability
 
 ## 🛠️ Troubleshooting
 
