@@ -240,7 +240,7 @@ class EmotionDataPreprocessor:
         - preprocessing_info: Dictionary with intermediate results
         """
         print("\n" + "="*70)
-        print("🚀 TRAINING DATA PREPROCESSING PIPELINE")
+        print(" TRAINING DATA PREPROCESSING PIPELINE")
         print("="*70)
         
         preprocessing_info = {}
@@ -303,7 +303,7 @@ class EmotionDataPreprocessor:
         self.is_fitted = True
         
         print("\n" + "="*70)
-        print("✅ TRAINING PREPROCESSING COMPLETED")
+        print(" TRAINING PREPROCESSING COMPLETED")
         print("="*70)
         print(f"Final shape: {X_pca.shape}")
         print(f"Original samples: {len(X_raw)}")
@@ -326,7 +326,7 @@ class EmotionDataPreprocessor:
             raise ValueError("Preprocessor must be fitted first! Call fit_transform() on training data.")
         
         print("\n" + "="*70)
-        print("🔄 TEST DATA PREPROCESSING PIPELINE")
+        print(" TEST DATA PREPROCESSING PIPELINE")
         print("="*70)
         
         preprocessing_info = {}
@@ -378,7 +378,7 @@ class EmotionDataPreprocessor:
         preprocessing_info['pca'] = X_pca
         
         print("\n" + "="*70)
-        print("✅ TEST PREPROCESSING COMPLETED")
+        print(" TEST PREPROCESSING COMPLETED")
         print("="*70)
         print(f"Final shape: {X_pca.shape}")
         print(f"Original samples: {len(X_raw)}")
