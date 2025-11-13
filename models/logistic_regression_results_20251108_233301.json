@@ -1,0 +1,88 @@
+{
+    "model_name": "Logistic Regression",
+    "timestamp": "20251108_233301",
+    "best_params": {
+        "C": 0.1,
+        "class_weight": "balanced",
+        "max_iter": 1000,
+        "penalty": "l2",
+        "solver": "saga"
+    },
+    "best_run_id": "195e181f096b43e88054eff3ac86b644",
+    "validation_metrics": {
+        "val_roc_auc": 0.7424407538520926,
+        "val_accuracy": 0.40229885057471265,
+        "val_f1_macro": 0.36323576012737757,
+        "val_f1_weighted": 0.40075082542295737
+    },
+    "test_metrics": {
+        "roc_auc": 0.7402165335453855,
+        "accuracy": 0.4017832265254946,
+        "f1_macro": 0.36684125665095324,
+        "f1_weighted": 0.39926884922074507
+    },
+    "per_class_metrics": [
+        {
+            "Emotion": "angry",
+            "Precision": 0.28931451612903225,
+            "Recall": 0.29958246346555323,
+            "F1-Score": 0.2943589743589743,
+            "Support": 958
+        },
+        {
+            "Emotion": "disgust",
+            "Precision": 0.21818181818181817,
+            "Recall": 0.32432432432432434,
+            "F1-Score": 0.26086956521739135,
+            "Support": 111
+        },
+        {
+            "Emotion": "fear",
+            "Precision": 0.25806451612903225,
+            "Recall": 0.2421875,
+            "F1-Score": 0.24987405541561714,
+            "Support": 1024
+        },
+        {
+            "Emotion": "happy",
+            "Precision": 0.609148812970469,
+            "Recall": 0.593010146561443,
+            "F1-Score": 0.6009711510996857,
+            "Support": 1774
+        },
+        {
+            "Emotion": "sad",
+            "Precision": 0.29880843263061413,
+            "Recall": 0.26142742582197276,
+            "F1-Score": 0.2788708297690334,
+            "Support": 1247
+        },
+        {
+            "Emotion": "surprise",
+            "Precision": 0.44731977818853974,
+            "Recall": 0.5824308062575211,
+            "F1-Score": 0.5060115002613695,
+            "Support": 831
+        },
+        {
+            "Emotion": "neutral",
+            "Precision": 0.3887931034482759,
+            "Recall": 0.3657745336577453,
+            "F1-Score": 0.3769327204346009,
+            "Support": 1233
+        }
+    ],
+    "training_samples": 22967,
+    "validation_samples": 5742,
+    "test_samples": 7178,
+    "feature_dimension": 1604,
+    "emotion_labels": [
+        "angry",
+        "disgust",
+        "fear",
+        "happy",
+        "sad",
+        "surprise",
+        "neutral"
+    ]
+}
