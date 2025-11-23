@@ -1,0 +1,19 @@
+{
+    "model_config": {
+        "kernel": "linear",
+        "C": 0.1,
+        "class_weight": "balanced"
+    },
+    "train": {
+        "roc_auc": 0.8269860867598906,
+        "accuracy": 0.4936823850028904,
+        "f1_macro": 0.5081330549147335,
+        "f1_weighted": 0.49195063176215625
+    },
+    "validation": {
+        "roc_auc": 0.7827461498522735,
+        "accuracy": 0.4336911643270025,
+        "f1_macro": 0.4510392562518281,
+        "f1_weighted": 0.4340670226868061
+    }
+}
